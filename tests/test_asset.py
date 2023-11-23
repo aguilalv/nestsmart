@@ -126,3 +126,25 @@ class TestCalculateEndingBalances():
         result = a.balance_eop
     
         xr.testing.assert_allclose(result,expected_result)
+
+#    def test_positive_returns_calculated_correctly_uniform_investment(self):
+#        initial_balance = 100
+#        years = [2023,2024,2025,2026,2027]
+#        inf = [10,10,5,5]
+#        outf = [-2,-2,-1,-1]
+#        returns = [0.1,0.05,0.02,0.01]
+#
+#        expected_result = xr.DataArray([100,118.4,132.52,139.2104,144.6225], coords={'year':years})
+#
+#        a = nestsmart.Asset.Asset(initial_investment = initial_balance,
+#                  cash_in = inf,
+#                  cash_out = outf,
+#                  returns = returns,
+#                  years = years,
+#                  cashflow_timing='uniform'
+#                 )
+#
+#        result = a.balance_eop
+#    
+#        xr.testing.assert_allclose(result,expected_result)
+#
