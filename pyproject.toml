@@ -21,6 +21,8 @@ pytest = "^7.4.3"
 ipytest = "^0.13.3"
 pytest-cov = "^4.1.0"
 notebook = "^7.0.6"
+pooch = "^1.8.0"
+nbdime = "^4.0.1"
 
 [build-system]
 requires = ["poetry-core"]

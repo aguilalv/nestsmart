@@ -1,6 +1,5 @@
 ### Next steps
 
-- Set-up UQPy Monte Carlo simulation
 
 ### Potential ideas
 
