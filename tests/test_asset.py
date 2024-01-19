@@ -1,6 +1,8 @@
 import xarray as xr
 import pytest
 import nestsmart.Asset
+import pendulum
+
 #from .context import nestsmart
 
 
@@ -8,7 +10,8 @@ class TestCalculateEndingBalances():
 
     def test_returns_from_initial_investment_calculated_correctly(self):
         initial_balance = 100
-        periods = [2023,2024,2025,2026,2027]
+        #periods = [2023,2024,2025,2026,2027]
+        periods = [pendulum.datetime(i,1,1) for i in range(2023,2028)]
         inf = [0,0,0,0]
         outf = [0,0,0,0]
         returns = [0.1,0.05,0.02,0.01]
@@ -29,7 +32,8 @@ class TestCalculateEndingBalances():
 
     def test_returns_from_inflows_calculated_correctly(self):
         initial_balance = 0
-        periods = [2023,2024,2025,2026,2027]
+        #periods = [pendulum.datetime(i,1,1)
+        periods = [pendulum.datetime(i,1,1) for i in range(2023,2028)]
         inf = [10,5,2,1]
         outf = [0,0,0,0]
         returns = [0.1,0.05,0.02,0.01]
@@ -49,7 +53,8 @@ class TestCalculateEndingBalances():
 
     def test_returns_from_outflows_calculated_correctly(self):
         initial_balance = 0
-        periods = [2023,2024,2025,2026,2027]
+        #periods = [2023,2024,2025,2026,2027] 
+        periods = [pendulum.datetime(i,1,1) for i in range(2023,2028)]
         inf = [0,0,0,0]
         outf = [-10,-5,-2,-1]
         returns = [0.1,0.05,0.02,0.01]
@@ -69,7 +74,8 @@ class TestCalculateEndingBalances():
 
     def test_positive_returns_calculated_correctly(self):
         initial_balance = 100
-        periods = [2023,2024,2025,2026,2027]
+        #periods = [2023,2024,2025,2026,2027] 
+        periods = [pendulum.datetime(i,1,1) for i in range(2023,2028)]
         inf = [10,5,2,1]
         outf = [-2,-2,-1,-1]
         returns = [0.1,0.05,0.02,0.01]
@@ -89,7 +95,8 @@ class TestCalculateEndingBalances():
 
     def test_negative_returns_calculated_correctly(self):
         initial_balance = 100
-        periods = [2023,2024,2025,2026,2027]
+        #periods = [2023,2024,2025,2026,2027] 
+        periods = [pendulum.datetime(i,1,1) for i in range(2023,2028)]
         inf = [10,5,2,1]
         outf = [-2,-2,-1,-1]
         returns = [-0.1,-0.05,-0.02,-0.01]
@@ -109,7 +116,8 @@ class TestCalculateEndingBalances():
 
     def test_zero_returns_calculated_correctly(self):
         initial_balance = 100
-        periods = [2023,2024,2025,2026,2027]
+        #periods = [2023,2024,2025,2026,2027] 
+        periods = [pendulum.datetime(i,1,1) for i in range(2023,2028)]
         inf = [10,5,2,1]
         outf = [-2,-2,-1,-1]
         returns = [0,0,0,0]
@@ -129,7 +137,8 @@ class TestCalculateEndingBalances():
 
 #    def test_positive_returns_calculated_correctly_uniform_investment(self):
 #        initial_balance = 100
-#        periods = [2023,2024,2025,2026,2027]
+#        #periods = [2023,2024,2025,2026,2027] 
+#        periods = [pendulum.datetime(i,1,1) for i in range(2023,2028)]
 #        inf = [10,10,5,5]
 #        outf = [-2,-2,-1,-1]
 #        returns = [0.1,0.05,0.02,0.01]

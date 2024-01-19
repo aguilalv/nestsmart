@@ -7,12 +7,12 @@ def uqpy_wrapper_balances_eop(input, **kwargs):
     initial_investment = kwargs['initial_investment']
     inflows = kwargs['inflows']
     outflows = kwargs['outflows']
-    years = kwargs['years']
+    periods = kwargs['periods']
     
     asset = Asset.Asset(initial_investment=initial_investment,
                   cash_in = inflows,
                   cash_out = outflows,
                   returns = input[0],
-                  years = years)
+                  periods = periods)
                 
     return asset.balance_eop

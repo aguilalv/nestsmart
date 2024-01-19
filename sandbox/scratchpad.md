@@ -1,9 +1,8 @@
 ### Next steps
 
-- Change years to period in Asset class (and use datetime objects to allow for monthly periods)
-
 ### Potential ideas
 
+- Change quantities from float to a type that has units and can convert between units (try to remember the library)
 - Add flag to invest uniformly during the period
 - Add incorrect and edge cases to test for generic asset class
 - Add taxes calculations to asset
