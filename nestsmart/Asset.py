@@ -3,16 +3,28 @@ import xarray as xr
 
 class Asset:
 
-    # Will probably need a list of dates for which the levels, payments, etc. correspond (Check pendulum)
-    
-    def __init__(self,initial_investment,cash_in,cash_out, returns, periods):
+    def __init__(self,initial_investment,cash_in,after_tax_income, returns, periods,already_taxed_income=None):
         self.initial_investment = initial_investment
         self.inflows = cash_in
-        self.outflows = cash_out
+        if already_taxed_income == None:
+            self.already_taxed_income = [0] * (len(periods)-1)
+        else:
+            self.already_taxed_income = already_taxed_income
+        self.outflows = np.array([-1*i for i in  after_tax_income])
+        self.outflows -= np.array(self.marginal_income_tax(self.already_taxed_income,[after_tax_income]))
         self.returns = returns
         self.periods = periods
         self.balance_eop = self._calculate_balances()
  
+
+    def marginal_income_tax(self,already_taxed_income,gross_marginal_income):
+        '''
+        This function calculates the absolute amount of taxes that need to be paid for marginal income assuming some income has already been taxed
+        '''
+        pass
+        #return [0] * len(gross_marginal_income)
+
+        
 
     def _calculate_balances (self):
     
