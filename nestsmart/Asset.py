@@ -3,32 +3,46 @@ import xarray as xr
 
 class Asset:
 
+    # Function calculates the absolute amount of taxes that need to be paid for marginal income assuming some income has already been taxed
+    # signature has to be def marginal_income_tax(self,already_taxed_income,gross_marginal_income):
+    marginal_income_tax = None 
+
+
     def __init__(self,initial_investment,cash_in,after_tax_income, returns, periods,already_taxed_income=None):
         self.initial_investment = initial_investment
+        self.periods = periods
         self.inflows = cash_in
+        
         if already_taxed_income == None:
             self.already_taxed_income = [0] * (len(periods)-1)
         else:
             self.already_taxed_income = already_taxed_income
         self.outflows = np.array([-1*i for i in  after_tax_income])
         self.outflows -= np.array(self.marginal_income_tax(self.already_taxed_income,[after_tax_income]))
+        self.outflows -= np.array(self.investment_fees())
+
         self.returns = returns
-        self.periods = periods
         self.balance_eop = self._calculate_balances()
  
 
-    def marginal_income_tax(self,already_taxed_income,gross_marginal_income):
-        '''
-        This function calculates the absolute amount of taxes that need to be paid for marginal income assuming some income has already been taxed
-        '''
-        pass
+#    def marginal_income_tax(self,already_taxed_income,gross_marginal_income):
+#        '''
+#        This function calculates the absolute amount of taxes that need to be paid for marginal income assuming some income has already been taxed
+#        '''
+#        pass
         #return [0] * len(gross_marginal_income)
 
-        
+    def investment_fees(self):
+        return [0] * (len(self.periods)-1)
 
     def _calculate_balances (self):
-    
-        ### IMPORTANT NOTE: This calculation assumes infows happen at the begining of the period (to make it so that they are spread uniformly across the period divide the returns by 2 - But only the returns on the new investment of that period-)
+        '''
+            This calculation assumes:
+                - inflows happen in day 1 of each period
+                - all income for the year is taken in day 1 of the period (outflow)
+                - all income taxes for the year are paid on day 1 of the period (outflow)
+                - all fees are paid on day 1 of the period
+        '''
         
         initial_investment = self.initial_investment
         cash_in = self.inflows

@@ -34,3 +34,4 @@ build-backend = "poetry.core.masonry.api"
 filterwarnings = [
     "ignore:datetime.datetime.utcfromtimestamp.*:DeprecationWarning",
 ]
+addopts = "--cov --cov-report term-missing"
