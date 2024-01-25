@@ -12,4 +12,7 @@
 - Add possibility of adding investment costs (at sub-class level?)
 - Add possibility of calculating IRR pre and post costs
 
+### Potential technologies / services to use
+
 - Use PostHog to understand how users use the site/app, to run releases to selected groups, to run post usage surveys ...
+- https://katalon.com/ for automated testing
