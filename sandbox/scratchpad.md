@@ -10,4 +10,6 @@
 - Add taxes calculations to asset
 	- Generic asset always assumes no taxes and sub-classes introduce taxes?
 - Add possibility of adding investment costs (at sub-class level?)
-- Add possibility of calculating IRR pre and post costs 
+- Add possibility of calculating IRR pre and post costs
+
+- Use PostHog to understand how users use the site/app, to run releases to selected groups, to run post usage surveys ...
