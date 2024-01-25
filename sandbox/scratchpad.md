@@ -11,3 +11,10 @@
 - Add possibility of calculating IRR pre and post costs
 - Create a portfolio class that orchestrates a series of assets (This class would mantain a list of assets, have a lot of the same methods and return the sum of calling that method for all of its assets, orchestrating for already payed income tax, capital gains tax, etc.)
 - Review fees calculation functions so that you only pay fees on what is actually invested and not on balance bop or eop 
+
+### Potential technologies / services to use
+
+- Use PostHog to understand how users use the site/app, to run releases to selected groups, to run post usage surveys ...
+- https://katalon.com/ for automated testing
+- Use hotjar to understand onsite user behaviour
+- https://posthog.com/tutorials
