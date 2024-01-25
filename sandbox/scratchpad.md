@@ -16,3 +16,4 @@
 
 - Use PostHog to understand how users use the site/app, to run releases to selected groups, to run post usage surveys ...
 - https://katalon.com/ for automated testing
+- Use hotjar to understand onsite user behaviour
