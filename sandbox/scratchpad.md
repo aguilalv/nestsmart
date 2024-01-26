@@ -21,6 +21,8 @@
 - https://katalon.com/ for automated testing
 - Use hotjar to understand onsite user behaviour
 - https://posthog.com/tutorials
+- Optimizely
+- ABTasty
 
 ***
 
